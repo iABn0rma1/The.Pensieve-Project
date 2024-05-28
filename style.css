@@ -1,0 +1,852 @@
+@font-face {
+    font-family: Hogwarts;
+    src: url(assets/fonts/HarryPotter.ttf);
+}
+@font-face {
+    font-family: Grindelwald;
+    src: url(assets/fonts/Crimes\ of\ Grindelwald.otf);
+}
+@font-face {
+    font-family: Beasts;
+    src: url(assets/fonts/Animales\ Fantastic.otf);
+}
+@font-face {
+    font-family: HiddenArchives;
+    src: url(assets/fonts/Hidden-Archives-\ PERSONNAL\ USE\ ONLY.ttf);
+}
+@font-face {
+    font-family: Snitch;
+    src: url(assets/fonts/jlrsnitch.ttf);
+}
+@font-face {
+    font-family: Lumos;
+    src: url(assets/fonts/LUMOS.TTF);
+}
+@font-face {
+    font-family: Wizarding-World;
+    src: url(assets/fonts/WizardWorldSimplified-Kxr7.ttf);
+}
+
+/* Optimized CSS rules */
+.logo {
+    position: fixed;
+    float: left;
+    margin: 1.5rem 0 0 3rem;
+    font-weight: bold;
+    font-size: 50px;
+    letter-spacing: 7px;
+    font-family: Grindelwald;
+}
+.logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+html, 
+body {
+    background: url(assets/img/star.gif);
+    margin: 0;
+    padding: 0;
+    width: 100%; 
+    min-width: 25%; 
+}
+body {
+    font-family: Poppins, sans-serif; 
+    color: #fff; 
+}
+h1, h2, h3, h4, h5 {
+    font-family: Wizarding-World;
+}
+header {
+    width: 100%;
+    height: 100vh;
+    background-size: cover; 
+}
+
+/* background images */
+.library-header {
+    background-size: cover;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 30)), url(assets/img/bgL3.png);
+    background-size: cover;
+    background-position: center;
+}
+.contact-header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 30)), url(assets/img/bgO.jpg);
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.character-header {
+    background: url(assets/img/bgC.jpeg) center center;
+    background-size: cover;
+}
+
+.content {
+    width: 90%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+hr.solid {
+    border-top: 3px solid rgba(129, 129, 129, 0.3);
+}
+
+.houses-container h1{
+    text-align: center;
+    font-size: 5em;
+    margin: .1em 1em .1em 1em;
+}
+.houses-container img{
+    width: 100%;
+    height: 100%;
+    margin: 4rem 0 1rem 0;
+}
+
+.houses-container {
+    padding: 3rem 0 0 0;
+}
+.house-content {
+    width: 90%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.5em;
+    text-align: justify;
+}
+.house-content img{
+    margin: -3em 0em -5em 8em;
+    width: 70%;
+    height: 70%;
+}
+
+/* Common styles for nav */
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+} 
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    color: #fff;
+    padding: 1rem 0;
+    margin: 0;
+    text-align: center;
+    transition: background 1s;
+}
+nav.black ul {
+    background: #000;
+}
+nav ul li {
+    display: inline-block;
+    padding: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+.menu-icon {
+    width: 100%;
+    background: #000;
+    text-align: right;
+    padding: 15px 40px;
+    color: #fff;
+    display: none;
+}
+  
+/* Responsive styles */
+@media (max-width: 580px) {
+    .logo {
+      position: fixed;
+      top: 0;
+      margin-top: 16px;
+    }
+    nav ul {
+      max-height: 0;
+      background: #000;
+    }
+    .showing {
+      max-height: 20em;
+    }
+    nav ul li {
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+    .menu-icon {
+      display: block;
+    }
+}
+  
+/* Variable declarations */
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height) / 1.5);
+    --cover-timing: 0.5s;
+    --cover-ease: cubic-bezier(0.66, 0.08, 0.19, 0.97);
+    --cover-stagger: 0.15s;
+    --text-timing: 0.75s;
+    --text-stagger: 0.015s;
+    --text-ease: cubic-bezier(0.38, 0.26, 0.05, 1.07);
+    --title-stagger: 0.05s;
+    --highlight: white;
+}
+  
+/* Book card styles */
+.book-card {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 8/12;
+    display: flex;
+    flex-direction: column;
+    margin: 0  0 0 3rem;
+    border-radius: 7px;
+    background-position: center;
+    background-size: cover;
+    transition: box-shadow 1s var(--cover-ease);
+}
+.book-card p {
+    opacity: 0;
+}
+.book-card > * {
+    z-index: 2;
+}
+.book-card img {
+    position: relative;
+    clip-path: inset(0px);
+}
+.book-card > img {
+    z-index: 0;
+    transition: all .8s cubic-bezier(0.66, 0.08, 0.19, 0.97);
+}
+.book-card::before,
+.book-card::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all var(--cover-timing) var(--cover-ease);
+    z-index: 1;
+}
+.book-card::after {
+    transition-delay: var(--cover-stagger);
+    top: 50%;
+}
+.book-card:hover,
+.book-card:focus {
+    cursor: pointer;
+}
+.book-card:hover::before,
+.book-card:hover::after {
+    transform: scaleX(1);
+}
+.book-card:hover h2,
+.book-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+.book-card:hover img {
+    transform: scale(1.1);
+}
+  
+/* Book text styles */
+.text {
+    position: absolute;
+    inset: 20px;
+    top: auto;
+}
+.book-title {
+    font-size: clamp(20px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 0.2em;
+}
+.book-description {
+    font-size: clamp(10px, 1.25vw, 14px);
+    line-height: 1.4;
+    text-align: justify;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+.book-title .char,
+.book-description .word {
+    color: var(--highlight);
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform var(--text-timing) var(--text-ease), opacity var(--text-timing) var(--text-ease), color var(--text-timing) var(--text-ease);
+}
+  
+/* Responsive adjustments */
+.book-card {
+    width: 50vw;
+    max-width: 300px;
+}
+@media screen and (min-width: 600px) {
+    .book-card {
+      width: 40vw;
+    }
+}
+
+.slider-item {
+    height: 200px;
+    width: 400px;
+    border-radius: 1rem;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+    margin: -5rem 2.5rem 0;
+}
+.slider-item:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.carousel-cell {
+    margin-top: 5rem;
+}
+
+.m-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+}    
+.magical-cover .m-container {
+    padding: 100px 0;
+}    
+.magical-cover h1 {
+    text-align: center;
+    font-size: 5em;
+    margin: 0.1em 1em; 
+    overflow: hidden;
+}    
+
+.movie-container {
+    position: relative;
+    width: 350px; 
+    height: 200px; 
+    margin: 1.5rem 0 0 1.5rem;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
+}
+.movie-container video {
+    width: 150%;
+    position: relative;
+    border-radius: 1rem;
+    margin-top: -50px;
+    outline: none;
+    object-fit: fill;
+    clip-path: inset(0px);
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 1.5s ease;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.movie-container:hover video {
+    cursor: pointer;
+    opacity: 1;
+}
+.thumbnail-img {
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.book-container {
+    text-align: center;
+    font-size: 1rem;
+    margin: 5rem 1rem .1rem 1rem;
+    letter-spacing: 2px;
+    & .HP-title1 {
+        font-family: Harry Potter;
+    }
+    & .FB-title1 {
+        font-family: Beasts;
+    }
+}
+.book-section {
+    width: 100vw;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.games-section {
+    width: 100vw;
+    margin: 10rem 3rem 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.house-section {
+    width: 100vw;
+    height: 80vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.house-section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0 5rem;
+}
+
+.card {
+    width: var(--card-width);
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    perspective: 2500px;
+    margin: 10rem 4rem 0;
+}
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-wrapper {
+    transition: all 0.5s; 
+    position: absolute;
+    width: 15em;
+    height: 25em;
+    z-index: -1;
+}
+.card:hover .card-wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+
+.card-wrapper::before,
+.card-wrapper::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+.card-wrapper::before { 
+    top: 0;
+    height: 80px; 
+    background: linear-gradient(to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgba(12, 13, 19) 97%);
+}
+.card-wrapper::after {
+    content: "";
+    opacity: 1;
+    width: 100%; 
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgba(12, 13, 19) 97%); 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.card:hover .card-wrapper::before,
+.card:hover .card-wrapper::after {
+    opacity: 1;
+}
+.card:hover .card-wrapper::after {
+    height: 120px;
+}
+
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+}
+.card:hover .title {
+    transform: translateY(-50px);
+}
+
+.character {
+    width: 15em;
+    height: 25em;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+.card:hover .character {
+    opacity: 1;
+    transform: translateY(-30%);
+}
+
+/* HEADER STYLES */
+.header-content {
+    position: absolute;
+    text-align: center;
+    color: #f1f1f1;
+    width: 100%;
+    & h1,
+    & h2,
+    & p {
+        font-size: 4rem;
+        margin: 0;
+    }
+    & p {
+        font-family: HiddenArchives;
+        margin-top: 20rem; 
+    }
+    & h1 {
+        font-family: Snitch;
+        margin-left: 7rem; 
+    }
+    & h2 {
+        margin-top: 11rem; 
+        font-family: Grindelwald;
+    }
+    & .index-img {
+        margin-top: 20rem; 
+    } 
+    & .library-img {
+        margin-top: 10rem;
+    }
+    & .library-img {
+        height: 10rem;
+        width: 50rem;
+    }
+    & .index-img {
+        height: 10rem;
+        width: 25rem;
+    }
+}
+
+/* CONTACT FORM STYLES */
+#contact-form {
+    max-width: 90%;
+    margin: 0 auto;
+}
+#contact-form .title {
+    font-size: 2.5rem;
+    font-family: Grindelwald;
+    padding-left: 5rem; 
+}
+
+label {
+    font-weight: 400;
+    cursor: pointer;
+}
+input:required:invalid {
+    color: rgba(255, 255, 255, 0.5);
+}
+input, 
+textarea {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    font-weight: 700;
+    font-family: Lumos;
+    font-size: 25px;
+    color: #ffffff;
+    max-width: 90%;
+    padding: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: text;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.5);
+}
+input:focus,
+textarea:focus {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-bottom: 2px dashed rgba(255, 255, 255, 1);
+}
+input:required:valid,
+textarea:required:valid {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+textarea {
+    text-align: left;
+    resize: none;
+}
+::placeholder {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* ADDITIONAL CONTACT FORM STYLES */
+.expanding {
+    vertical-align: top;
+    transition: width 0.3s ease-in-out; 
+}
+.expanding:focus {
+    width: 100%; 
+}
+
+.send-icn {
+    fill: rgb(255, 255, 255);
+    transition: fill 0.3s ease-in-out; 
+}
+.send-icn:hover {
+    cursor: pointer;
+}
+
+.submit-button {
+    background: none;
+    border: none;
+    outline: none;
+    margin: 2vmax;
+    cursor: pointer;
+}
+.submit-button img {
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+}
+.submit-button:hover small {
+    opacity: 1;
+    color: #ffffff;
+}
+.submit-button small {
+    display: block;
+    opacity: 0;
+    margin-top: -0.7rem;
+    margin-left: 1.5rem;
+}
+
+/* WEBSITE AND CONTACT BODY STYLES */
+.website {
+    opacity: 1;
+    font-size: 16px;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 7%;
+}
+.website a {
+    color: #ffffff;
+}
+
+.contact-body {
+    font-family: Wizarding-World;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper 
+{
+    margin: 25rem auto;
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 200px;
+    perspective: 800px;
+    .page-page 
+    {
+        position: absolute;
+        top: 0;
+        height: 300px;
+        width: 200px;
+        left: 50%;
+        transform-origin: left;
+        transform-style: preserve-3d;
+        transform: rotateY(0);
+        animation: flipBook 3s infinite both ease-in-out;
+        border: 3px solid white;
+        z-index: 1;
+        &:nth-child(1) {
+            background: url(assets/img/HP-p1.png);
+            animation-delay: 2s;
+            background-size: cover;
+            background-size: cover;
+            background-position: center;
+        }
+        &:nth-child(2) {
+            background: url(assets/img/HP-p2.png);
+            animation-delay: 1s;
+            background-size: cover;
+            background-size: cover;
+            background-position: center;
+        }
+        &:nth-child(3) {
+            background: url(assets/img/HP-p3.png);
+            animation-delay: 0;
+            background-size: cover;
+            background-size: cover;
+            background-position: center;
+      }
+    }
+}
+  
+@keyframes flipBook 
+{
+    0% {
+        transform: rotateY(0);
+        z-index: 1;
+    }
+    60% {
+      z-index: 3;
+    }
+    80% {
+      transform: rotateY(-180deg);
+    }
+}
+
+canvas {
+    position:absolute;
+}
+.bars-and-stuff{
+    left:66.6%;
+}
+.output-console {
+    margin: 25rem 5rem 0rem 5rem;
+    overflow: visible;
+}
+
+
+/* Ascendio Button  */
+#goTop{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+  
+#goTop:hover {
+    background-color: #555;
+}
+
+
+.wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+}
+
+.parallax__group {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    transform-style: preserve-3d;
+}
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.hogwarts {
+    background: url('assets/img/px-Backdrop.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-600px) scale(3);
+    z-index: 1;
+}
+.bushes {
+    background: url('assets/img/px-bushes-r.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-525px) scale(2.75);
+    z-index: 2;
+}
+.cliffsMoher {
+    background: url('assets/img/px-bushes-l.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-400px) scale(2.33333333);
+    z-index: 3;
+}
+.bushesF {
+    background: url('assets/img/px-bushes-r.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-250px) scale(1.833333333);
+    z-index: 4;
+}
+.cliffsMoherF {
+    background: url('assets/img/px-bushes-l.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-125px) scale(1.4167);
+    z-index: 5;
+}
+.wiz {
+    background: url('assets/img/px-wizF.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(0) scale(1);
+    z-index: 6;
+}
+
+.hero-text {
+    background-size: cover;
+    transform: translateZ(0) scale(1);
+    z-index: 7;
+}
+.hero-text h2 {
+    font-size: 1.25rem;
+    position: absolute;
+    left: 2.5rem;
+    top: 2.5rem;
+}
+
+.hero-text ul {
+    font-size: 0.75rem;
+    position: absolute;
+    right: 2.5rem;
+    top: 2.5rem;
+}
+.hero-text ul li {
+    margin-left: 2.5rem;
+    list-style-type: none;
+    float: left;
+    visibility: hidden;
+}
+.hero-text ul li:nth-of-type(3) {
+    visibility: visible;
+}
+
+.info-container {
+    background: #000;
+    transform: translateZ(0) scale(1);
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.info-container video {
+    width: 75%;
+    margin-bottom: 2.5rem;
+    filter: saturate(0.65);
+}
+.info-container h2,
+.info-container p {
+    margin-bottom: 1rem;
+}
+.text-container p:nth-of-type(1) {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 1rem 2.5rem;
+}
+.text-container p:nth-of-type(2) {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}

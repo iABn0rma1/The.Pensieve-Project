@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Pensieve</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <header class="contact-header">
+            
+            <nav>
+                <div class="menu-icon">
+                    <i class=" fa fa-bars fa-2x"></i>
+                </div>
+
+                <div class="logo">
+                    <a href="index.html">
+                        Gi
+                    </a>
+                </div> 
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">Platform 9¾</a></li>
+                        <li><a href="library.html">The Restricted Section</a></li>
+                        <li><a href="alumni.html">Order of Merlin</a></li>
+                        <li><a href="owls.html">Send an Owl</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="header-content">
+                <h2>Send Your</h2>
+                <h1>Owl</h1>
+            </div>
+
+        </header>
+    </div>
+
+    <div class="contact-body">
+
+        <form id="contact-form">
+            <p class="title">Dear Gi team,</p>
+            <p>My
+                <label for="your-name">name</label> is
+                <input type="text" name="your-name" id="your-name" minlength="3" placeholder="(your name here)" 
+                required> and I am contacting you from 
+                <input type="text" name="your-business" id="your-business" minlength="3" placeholder="(your location)" 
+                required>.
+            </p>
+
+            <p>My
+                <label for="email">email address</label> is
+                <input type="email" name="your-email" id="email" placeholder="(your email address)" 
+                required>. I look forward to hearing from you.
+            </p>
+
+            <p> I have a
+                <label for="your-message">message</label> for you,
+            </p>
+
+            <p>
+                <textarea name="your-message" id="your-message" placeholder="(your message here)" class="expanding" 
+                required></textarea>
+            </p>
+            
+            <p>
+                <button type="submit" class="submit-button">
+                    <img src="assets/img/owLetter-ld.png">
+                <small>send</small>
+                </button>
+            </p>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
