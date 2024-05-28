@@ -10,13 +10,12 @@ $(document).ready(function()
     $('.movie-container').hover(function() {
     // Array of video URLs
     var videoUrls = [
-        "vids/2/01 - A Magical Escape .mp4",
-        "vids/2/02 - The Flying Ford .mp4",
-        "vids/2/03 - Moaning Myrtle .mp4",
-        "vids/2/04 - Ron's Slug Spell Backfires .mp4",
-        "vids/2/05 - Wizard Duel： Draco Malfoy vs Harry Potter .mp4",
-        "vids/2/06 - Mandrake Potting .mp4",
-        "vids/2/12 - Ron receives a Howler .mp4",
+        "assets/vids/HP/2/main/clip-001.mp4",
+        "assets/vids/HP/2/main/clip-002.mp4",
+        "assets/vids/HP/2/main/clip-003.mp4",
+        "assets/vids/HP/2/main/clip-004.mp4",
+        "assets/vids/HP/2/main/clip-005.mp4",
+        "assets/vids/HP/2/main/clip-006.mp4",
     ];
 
     // Randomly choose a video URL from the array
