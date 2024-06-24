@@ -429,7 +429,7 @@ nav ul li a {
     height: 25em;
     z-index: -1;
 }
-.card:hover .card-wrapper {
+.character-card:hover .card-wrapper {
     transform: perspective(900px) translateY(-5%) rotateX(25deg);
     box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 }
@@ -458,11 +458,11 @@ nav ul li a {
     left: 0;
     bottom: 0;
 }
-.card:hover .card-wrapper::before,
-.card:hover .card-wrapper::after {
+.character-card:hover .card-wrapper::before,
+.character-card:hover .card-wrapper::after {
     opacity: 1;
 }
-.card:hover .card-wrapper::after {
+.character-card:hover .card-wrapper::after {
     height: 120px;
 }
 
@@ -470,7 +470,7 @@ nav ul li a {
     width: 100%;
     transition: transform 0.5s;
 }
-.card:hover .title {
+.character-card:hover .title {
     transform: translateY(-50px);
 }
 
@@ -482,7 +482,7 @@ nav ul li a {
     position: absolute;
     z-index: -1;
 }
-.card:hover .character {
+.character-card:hover .character {
     opacity: 1;
     transform: translateY(-30%);
 }
