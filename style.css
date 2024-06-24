@@ -406,11 +406,12 @@ nav ul li a {
     margin: 0rem 0 5rem;
 }
 
-.card {
+.character-card {
     width: var(--card-width);
     height: 300px;
     position: relative;
     display: flex;
+    background-color: none !important;
     justify-content: center;
     align-items: flex-end;
     perspective: 2500px;
