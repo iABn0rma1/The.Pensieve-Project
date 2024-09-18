@@ -23,7 +23,7 @@ Contributions are welcome to enhance The Pensieve Project! To contribute, please
 
 3. **Clone the Forked Repository**:
     ```bash
-    git clone https://github.com/yourusername/the-pensieve-project.git
+    https://github.com/iABn0rma1/The.Pensieve-Project.git
     ```
 
 4. **Create a Branch**:
