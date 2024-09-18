@@ -1,34 +1,33 @@
 //Menu toggle-effect
-$(document).ready(function()
-{
+$(document).ready(function () {
     // Menu toggle-effect
-    $(".menu-icon").on("click", function() {
+    $(".menu-icon").on("click", function () {
         $("nav ul").toggleClass("showing");
     });
 
     // Hover effect for movie container
-    $('.movie-container').hover(function() {
-    // Array of video URLs
-    var videoUrls = [
-        "assets/vids/HP/2/main/clip-001.mp4",
-        "assets/vids/HP/2/main/clip-002.mp4",
-        "assets/vids/HP/2/main/clip-003.mp4",
-        "assets/vids/HP/2/main/clip-004.mp4",
-        "assets/vids/HP/2/main/clip-005.mp4",
-        "assets/vids/HP/2/main/clip-006.mp4",
-    ];
+    $('.movie-container').hover(function () {
+        // Array of video URLs
+        var videoUrls = [
+            "assets/vids/HP/2/main/clip-001.mp4",
+            "assets/vids/HP/2/main/clip-002.mp4",
+            "assets/vids/HP/2/main/clip-003.mp4",
+            "assets/vids/HP/2/main/clip-004.mp4",
+            "assets/vids/HP/2/main/clip-005.mp4",
+            "assets/vids/HP/2/main/clip-006.mp4",
+        ];
 
-    // Randomly choose a video URL from the array
-    var randomIndex = Math.floor(Math.random() * videoUrls.length);
-    var randomVideoUrl = videoUrls[randomIndex];
+        // Randomly choose a video URL from the array
+        var randomIndex = Math.floor(Math.random() * videoUrls.length);
+        var randomVideoUrl = videoUrls[randomIndex];
 
-    // Get the video element
-    var videoElement = $('.movie-container video')[0];
+        // Get the video element
+        var videoElement = $('.movie-container video')[0];
 
-    // Set the source of the video element to the random video URL
-    if (videoElement) {
-        videoElement.src = randomVideoUrl;
-    }
+        // Set the source of the video element to the random video URL
+        if (videoElement) {
+            videoElement.src = randomVideoUrl;
+        }
 
         var video = $(this).find('video')[0];
         if (video) {
@@ -36,21 +35,20 @@ $(document).ready(function()
             video.play();
             $(this).find('.thumbnail-img').hide();
         }
-    }, function() {
+    }, function () {
         var video = $(this).find('video')[0];
         if (video) {
             video.pause();
             $(this).find('.thumbnail-img').show();
         }
-      });
+    });
 });
 //Scrolling Effect
-$(window).on('scroll', function()
-{
-    if($(window).scrollTop()) {
+$(window).on('scroll', function () {
+    if ($(window).scrollTop()) {
         $('nav').addClass('black');
     }
-    else{
+    else {
         $('nav').removeClass('black')
     }
 })
@@ -58,7 +56,7 @@ $(window).on('scroll', function()
 Splitting();
 setTimeout(() => {
     document.querySelector(".book-card").focus();
-},1500);
+}, 1500);
 
 var canvas = document.querySelector(".hacker-3d-shiz"),
     ctx = canvas.getContext("2d"),
@@ -66,10 +64,10 @@ var canvas = document.querySelector(".hacker-3d-shiz"),
     ctxBars = canvasBars.getContext("2d"),
     outputConsole = document.querySelector(".output-console");
 
-canvas.width = (window.innerWidth/3)*2;
+canvas.width = (window.innerWidth / 3) * 2;
 canvas.height = window.innerHeight / 3;
 
-canvasBars.width = window.innerWidth/3;
+canvasBars.width = window.innerWidth / 3;
 canvasBars.height = canvas.height;
 
 outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
@@ -78,36 +76,36 @@ outputConsole.style.top = window.innerHeight / 3 + 'px'
 
 /* Graphics stuff */
 function Square(z) {
-    this.width = canvas.width/2;
-    
-    if(canvas.height < 200){
-      this.width = 200;
+    this.width = canvas.width / 2;
+
+    if (canvas.height < 200) {
+        this.width = 200;
     };
-  
+
     this.height = canvas.height;
     z = z || 0;
 
     this.points = [
-    new Point({
-        x: (canvas.width / 2) - this.width,
-        y: (canvas.height / 2) - this.height,
-        z: z
-    }),
-    new Point({
-        x: (canvas.width / 2) + this.width,
-        y: (canvas.height / 2) - this.height,
-        z: z
-    }),
-    new Point({
-        x: (canvas.width / 2) + this.width,
-        y: (canvas.height / 2) + this.height,
-        z: z
-    }),
-    new Point({
-        x: (canvas.width / 2) - this.width,
-        y: (canvas.height / 2) + this.height,
-        z: z
-    })];
+        new Point({
+            x: (canvas.width / 2) - this.width,
+            y: (canvas.height / 2) - this.height,
+            z: z
+        }),
+        new Point({
+            x: (canvas.width / 2) + this.width,
+            y: (canvas.height / 2) - this.height,
+            z: z
+        }),
+        new Point({
+            x: (canvas.width / 2) + this.width,
+            y: (canvas.height / 2) + this.height,
+            z: z
+        }),
+        new Point({
+            x: (canvas.width / 2) - this.width,
+            y: (canvas.height / 2) + this.height,
+            z: z
+        })];
     this.dist = 0;
 }
 
@@ -179,36 +177,36 @@ var squares = [],
     sineVal = 0;
 
 /* fake console stuff */
-var commandStart = ['Performing DNS Lookups for', 
-                'Searching ', 
-                'Analyzing ', 
-                'Estimating Approximate Location of ', 
-                'Compressing ', 
-                'Requesting Authorization From : ', 
-                'wget -a -t ', 
-                'tar -xzf ', 
-                'Entering Location ', 
-                'Compilation Started of ',
-                 'Downloading '],
-    commandParts = ['Data Structure', 
-                    'http://wwjd.com?au&2', 
-                    'Texture', 
-                    'TPS Reports', 
-                    ' .... Searching ... ', 
-                    'http://zanb.se/?23&88&far=2', 
-                    'http://ab.ret45-33/?timing=1ww'],
-    commandResponses = ['Authorizing ', 
-                 'Authorized...', 
-                 'Access Granted..', 
-                 'Going Deeper....', 
-                 'Compression Complete.', 
-                 'Compilation of Data Structures Complete..', 
-                 'Entering Security Console...', 
-                 'Encryption Unsuccesful Attempting Retry...', 
-                 'Waiting for response...', 
-                 '....Searching...', 
-                 'Calculating Space Requirements '
-                ],
+var commandStart = ['Performing DNS Lookups for',
+    'Searching ',
+    'Analyzing ',
+    'Estimating Approximate Location of ',
+    'Compressing ',
+    'Requesting Authorization From : ',
+    'wget -a -t ',
+    'tar -xzf ',
+    'Entering Location ',
+    'Compilation Started of ',
+    'Downloading '],
+    commandParts = ['Data Structure',
+        'http://wwjd.com?au&2',
+        'Texture',
+        'TPS Reports',
+        ' .... Searching ... ',
+        'http://zanb.se/?23&88&far=2',
+        'http://ab.ret45-33/?timing=1ww'],
+    commandResponses = ['Authorizing ',
+        'Authorized...',
+        'Access Granted..',
+        'Going Deeper....',
+        'Compression Complete.',
+        'Compilation of Data Structures Complete..',
+        'Entering Security Console...',
+        'Encryption Unsuccesful Attempting Retry...',
+        'Waiting for response...',
+        '....Searching...',
+        'Calculating Space Requirements '
+    ],
     isProcessing = false,
     processTime = 0,
     lastProcess = 0;
@@ -224,116 +222,116 @@ function render() {
         squares[i].update();
         squares[i].render();
     }
-    
+
     ctxBars.clearRect(0, 0, canvasBars.width, canvasBars.height);
-    
+
     ctxBars.beginPath();
-    var y = canvasBars.height/6;
-    ctxBars.moveTo(0,y);
-    
-    for(i = 0; i < canvasBars.width; i++){
-        var ran = (Math.random()*20)-10;
-        if(Math.random() > 0.98){
-             ran = (Math.random()*50)-25   
+    var y = canvasBars.height / 6;
+    ctxBars.moveTo(0, y);
+
+    for (i = 0; i < canvasBars.width; i++) {
+        var ran = (Math.random() * 20) - 10;
+        if (Math.random() > 0.98) {
+            ran = (Math.random() * 50) - 25
         }
         ctxBars.lineTo(i, y + ran);
     }
-    
+
     ctxBars.stroke();
-    
-    for(i = 0; i < canvasBars.width; i+=20){
-        if(!barVals[i]){
+
+    for (i = 0; i < canvasBars.width; i += 20) {
+        if (!barVals[i]) {
             barVals[i] = {
-                val : Math.random()*(canvasBars.height/2),
-                freq : 0.1,
-                sineVal : Math.random()*100
+                val: Math.random() * (canvasBars.height / 2),
+                freq: 0.1,
+                sineVal: Math.random() * 100
             };
         }
-        
-        barVals[i].sineVal+=barVals[i].freq;
-        barVals[i].val+=Math.sin(barVals[i].sineVal*Math.PI/2)*5;
-        ctxBars.fillRect(i+5,canvasBars.height,15,-barVals[i].val);
+
+        barVals[i].sineVal += barVals[i].freq;
+        barVals[i].val += Math.sin(barVals[i].sineVal * Math.PI / 2) * 5;
+        ctxBars.fillRect(i + 5, canvasBars.height, 15, -barVals[i].val);
     }
-    
+
     requestAnimationFrame(render);
 }
 
-function consoleOutput(){
+function consoleOutput() {
     var textEl = document.createElement('p');
-    
-    if(isProcessing){
+
+    if (isProcessing) {
         textEl = document.createElement('span');
         textEl.textContent += Math.random() + " ";
-        if(Date.now() > lastProcess + processTime){
-            isProcessing = false;   
+        if (Date.now() > lastProcess + processTime) {
+            isProcessing = false;
         }
-    }else{
-        var commandType = ~~(Math.random()*4);
-        switch(commandType){
+    } else {
+        var commandType = ~~(Math.random() * 4);
+        switch (commandType) {
             case 0:
-                textEl.textContent = commandStart[~~(Math.random()*commandStart.length)] + commandParts[~~(Math.random()*commandParts.length)];
+                textEl.textContent = commandStart[~~(Math.random() * commandStart.length)] + commandParts[~~(Math.random() * commandParts.length)];
                 break;
-            case 3: 
+            case 3:
                 isProcessing = true;
-                processTime = ~~(Math.random()*5000);
+                processTime = ~~(Math.random() * 5000);
                 lastProcess = Date.now();
             default:
-                 textEl.textContent = commandResponses[~~(Math.random()*commandResponses.length)];
-            break;
+                textEl.textContent = commandResponses[~~(Math.random() * commandResponses.length)];
+                break;
         }
     }
 
     outputConsole.scrollTop = outputConsole.scrollHeight;
     outputConsole.appendChild(textEl);
-    
+
     if (outputConsole.scrollHeight > window.innerHeight) {
-       var removeNodes = outputConsole.querySelectorAll('*');
-       for(var n = 0; n < ~~(removeNodes.length/3); n++){
+        var removeNodes = outputConsole.querySelectorAll('*');
+        for (var n = 0; n < ~~(removeNodes.length / 3); n++) {
             outputConsole.removeChild(removeNodes[n]);
         }
     }
-    
-    setTimeout(consoleOutput, ~~(Math.random()*200));
+
+    setTimeout(consoleOutput, ~~(Math.random() * 200));
 }
 
 
-setTimeout(function(){   
-      canvas.width = (window.innerWidth/3)*2;
-      canvas.height = window.innerHeight / 3;
+setTimeout(function () {
+    canvas.width = (window.innerWidth / 3) * 2;
+    canvas.height = window.innerHeight / 3;
 
-      canvasBars.width = window.innerWidth/3;
-      canvasBars.height = canvas.height;
+    canvasBars.width = window.innerWidth / 3;
+    canvasBars.height = canvas.height;
 
-      outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
-      outputConsole.style.top = window.innerHeight / 3 + 'px';
-  
-      focal = canvas.width / 2;
-      vpx = canvas.width / 2;
-      vpy = canvas.height / 2;
+    outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
+    outputConsole.style.top = window.innerHeight / 3 + 'px';
 
-      for (var i = 0; i < 15; i++) {
-          squares.push(new Square(-300 + (i * 200)));
-      }
-  
-      ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
-  
-      render();
-      consoleOutput();
+    focal = canvas.width / 2;
+    vpx = canvas.width / 2;
+    vpy = canvas.height / 2;
+
+    for (var i = 0; i < 15; i++) {
+        squares.push(new Square(-300 + (i * 200)));
+    }
+
+    ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
+
+    render();
+    consoleOutput();
 }, 200);
 
-window.addEventListener('resize', function(){
-      canvas.width = (window.innerWidth/3)*2;
-      canvas.height = window.innerHeight / 3;
+window.addEventListener('resize', function () {
+    canvas.width = (window.innerWidth / 3) * 2;
+    canvas.height = window.innerHeight / 3;
 
-      canvasBars.width = window.innerWidth/3;
-      canvasBars.height = canvas.height;
+    canvasBars.width = window.innerWidth / 3;
+    canvasBars.height = canvas.height;
 
-      outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
-      outputConsole.style.top = window.innerHeight / 3 + 'px';
-  
-      focal = canvas.width / 2;
-      vpx = canvas.width / 2;
-      vpy = canvas.height / 2;
-      ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
+    outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
+    outputConsole.style.top = window.innerHeight / 3 + 'px';
+
+    focal = canvas.width / 2;
+    vpx = canvas.width / 2;
+    vpy = canvas.height / 2;
+    ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
 });
 
