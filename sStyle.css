@@ -457,7 +457,6 @@ footer .icons {
     background-color: #0e1a40;
     color: #fff;
     border: none;
-    padding: 15px 30px;
     font-size: 18px;
     font-family: 'Arial', sans-serif;
     text-decoration: none;
@@ -473,13 +472,28 @@ footer .icons {
     text-decoration: none;
 }
 
+.tempus-revertitur-btn .left {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    padding: 15px 30px;
+    margin-right: 15px;
+    border-right: 1px solid #495057;
+}
+
+.tempus-revertitur-btn .right {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 .tempus-revertitur-btn i {
-    margin-right: 10px;
     font-size: 24px;
 }
 
 .tempus-revertitur-btn span {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .hover-text {
